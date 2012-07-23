@@ -1,0 +1,29 @@
+
+  <% if @form_err.size != 0 %>
+    <ul> Errors:
+    <% @form_err.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+<%= form_for :calc, :method => :get do |f| %>
+  <p>
+    <%= f.label :slagaemoe1 %><br>
+    <%= f.text_field :s1 %>
+  </p>
+
+  <p>
+    <%= f.label :slagaemoe2 %><br>
+    <%= f.text_field :s2 %>
+  </p>
+ 
+  <p>
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  </p>
+<% end %>
+
+<%if @form_err.size == 0 and  @sum%>
+  <%= @s1%> + <%= @s2%> = <%= @sum%>  
+<%end%>
+
